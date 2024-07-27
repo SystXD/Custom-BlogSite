@@ -1,9 +1,14 @@
 <script>
+import { signOut } from "@auth/sveltekit/client"
+
+
 export let linkFirst
-export let AdminText
+ export let AdminText
+
+
 </script>
 <nav class="flex justify-between border border-gray-300 rounded-full  mt-2 px-20 py-10 items-center bg-white">
-  <i class="fa-solid fa-user text-2xl"></i>
+  <button on:click={signOut}><i class="fa-solid fa-user text-2xl"></i></button>
   
 
     <div class="flex items-center">
