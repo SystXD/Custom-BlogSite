@@ -14,7 +14,7 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
             return token
         },
         session({ session, token }) {
-            session.user.email = token.emailId
+            session.user.email = token.emailId as string
             return session
         }
     },
