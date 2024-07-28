@@ -9,6 +9,7 @@
 </script>
 
 {#if $page.data.session}
+  
   <Navbar AdminText={"Welcome SystXD"} linkFirst={"/admin/blogs"} />
 
   <div class="flex flex-wrap gap-2 items-center justify-center">
