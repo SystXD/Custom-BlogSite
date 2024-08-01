@@ -7,7 +7,8 @@ export default model<Structure>(
         authorId: String,
         blogContent: String,
         blogTitle: String,
+        blogAlias: String,
         createdAt: { type: Date, default: new Date() },
-        keywords: [String]
+        keyWords: [String]
     })
 )

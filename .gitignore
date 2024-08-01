@@ -9,7 +9,7 @@ node_modules
 # OS
 .DS_Store
 Thumbs.db
-
+config.json
 # Env
 .env
 .env.*

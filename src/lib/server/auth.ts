@@ -10,11 +10,15 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
     })],
     callbacks: {
         jwt({ token, user }) {
-            if (user) token.emailId = user.email
+            if (user) {
+                token.emailId = user.email
+                token.thumbnail = user.image
+            }
             return token
         },
         session({ session, token }) {
             session.user.email = token.emailId as string
+            session.user.image = token.thumbnail as string
             return session
         }
     },
