@@ -1,6 +1,6 @@
 import { MongoDB_URI } from "$env/static/private";
 import { sequence } from "@sveltejs/kit/hooks";
-import { ApiHeader } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import { json, type Handle } from "@sveltejs/kit";
 import mongoose from "mongoose";
 const startTime = performance.now();
@@ -18,7 +18,7 @@ export const ApiAuth: Handle = async ({ event, resolve }) => {
   const headers = event.request.headers.get("Authorization");
 
   if (event.url.pathname.startsWith("/api")) {
-    if (!headers || !headers.includes(ApiHeader))
+    if (!headers || !headers.includes(env.ApiHeader))
       return json("Unauthorized", { status: 401 });
   }
 
