@@ -3,6 +3,7 @@ export interface Structure {
     blogTitle: string,
     blogAlias: string,
     blogContent: string,
+    blogId: string
     createdAt: Date,
     keyWords: string[]
 }
