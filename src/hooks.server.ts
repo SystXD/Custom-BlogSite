@@ -19,7 +19,7 @@ export const ApiAuth: Handle = async ({ event, resolve }) => {
 
   if (event.url.pathname.startsWith("/api")) {
     if (!headers || !headers.includes(env.ApiHeader))
-      return json("Unauthorized", { status: 401 });
+      return json("unauthorized", { status: 401 });
   }
 
   return await resolve(event);

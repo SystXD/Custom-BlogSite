@@ -1,10 +1,18 @@
 <script>
   import { useQuery } from "@sveltestack/svelte-query";
   import DisplayCard from "../cards/DisplayCard.svelte";
+  import { Authentication } from '$lib/utils/config.json'
+  import { onMount } from "svelte";
 
-  const data = useQuery("blogJSON", () => {
-    fetch("/api/v1/blogs").then((r) => r.json());
-  });
+  let enabled = false;
+
+  onMount(() => enabled = true)
+
+  const data = useQuery("blogJSON", () => fetch('/api/v1/blogs', {
+    headers: { "Authorization": Authentication.AuthHeader }
+  }).then(res => res.json()), {
+    enabled
+  })
 </script>
 
 {#if $data.isLoading}
@@ -16,7 +24,7 @@
     ></div>
   </div>
 {:else if $data.isError}
-  <h1>Error faced on loading the blogs</h1>
+  <h1>Error faced on loading the blogs</h1> 
 {:else}
-  <DisplayCard />
+<DisplayCard />
 {/if}
