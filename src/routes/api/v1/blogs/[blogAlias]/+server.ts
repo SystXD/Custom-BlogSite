@@ -16,3 +16,13 @@ export const GET = async ({ params }: import("./$types").RequestEvent) => {
     });
   }
 };
+
+export const POST = async ({ params }: import('./$types').RequestEvent) => {
+  try {
+      return json("Hi, I'm the POST Request", {
+        status: 200
+      })
+  } catch (error) {
+    
+  }
+}
